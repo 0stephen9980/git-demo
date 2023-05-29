@@ -10,13 +10,13 @@ export async function middleware(req: NextRequest) {
     const supabase = createMiddlewareSupabaseClient<any>({ req, res });
     const data = await supabase.auth.getSession();
     if(data)
-      return NextResponse.rewrite(new URL('/admin/login', req.url));
+      return NextResponse.rewrite(new URL('/auth/login', req.url));
   }
   
   return res
 }
  
 // See "Matching Paths" below to learn more
-export const config = {
-  matcher: ['/admin/:path*']
-};
+// export const config = {
+//   matcher: ['/admin/:path*']
+// };

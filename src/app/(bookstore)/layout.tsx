@@ -3,6 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import '../globals.css'
 import SupabaseProvider from './services/supabaseconnection';
 import { useSupabase } from './services/supabaseconnection';
+import { ChakraProviders } from '../chakraProvider';
 
 export const metadata = {
   title: 'Create Next App',
@@ -24,7 +25,9 @@ export default async function RootLayout({
         {/* <SupabaseProvider session={session}>
         {children}
         </SupabaseProvider> */}
-        {children}
+        <ChakraProviders>
+          {children}
+        </ChakraProviders>
       </body>
     </html>
   )
